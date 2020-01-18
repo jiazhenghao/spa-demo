@@ -22,6 +22,7 @@ const config = {
         options: {
           css: "css-loader",
           scss: "css-loader|sass-loader"
+          // extractCSS: true
         }
       },
       {
