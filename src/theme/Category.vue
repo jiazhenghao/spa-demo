@@ -21,7 +21,8 @@ export default {
   },
   data() {
     return {
-      posts: [
+      id: this.$route.params.id,
+      postsFrontEnd: [
         {
           id: 1,
           title: "PWA Stats",
@@ -44,7 +45,9 @@ export default {
             "Why now is the perfect time to learn what exactly this GraphQL thing you keep hearing about really is.",
           link:
             "https://medium.freecodecamp.com/so-whats-this-graphql-thing-i-keep-hearing-about-baf4d36c20cf"
-        },
+        }
+      ],
+      postsMobile: [
         {
           id: 4,
           title: "State of The Mobile Gap Between Native and Web",
@@ -67,8 +70,28 @@ export default {
             "The beautiful thing about Vue is that it's incredibly feature-rich.",
           link: "https://css-tricks.com/power-custom-directives-vue/"
         }
-      ]
+      ],
+      posts: []
     };
+  },
+  methods: {
+    loadPosts() {
+      if (this.id === "front-end") {
+        this.posts = this.postsFrontEnd;
+      } else {
+        this.posts = this.postsMobile;
+      }
+    }
+  },
+  created() {
+    this.loadPosts();
+  },
+  watch: {
+    // '$route' (to, from)
+    $route(newValue, oldValue) {
+      this.id = newValue.params.id;
+      this.loadPosts();
+    }
   }
 };
 </script>
