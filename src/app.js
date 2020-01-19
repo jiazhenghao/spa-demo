@@ -4,10 +4,12 @@
 import Vue from "vue";
 import AppLayout from "./theme/Layout.vue";
 import router from "./router";
+import store from "./vuex/index";
 
 export const app = new Vue({
   router,
-  ...AppLayout
+  ...AppLayout,
+  store
 });
 
-export { router };
+export { router, store };

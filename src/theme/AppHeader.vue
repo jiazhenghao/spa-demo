@@ -14,14 +14,31 @@
         Mobile
       </router-link>
       <router-link to="/login" class="nav-item is-tab">
-        Login
+        <span v-if="isAuthenticated">Logout</span>
+        <span v-else>Login</span>
       </router-link>
     </div>
   </nav>
 </template>
 
 <script>
-export default {};
+// import eventBus from "../event-bus";
+import { mapGetters } from "vuex";
+export default {
+  // data() {
+  //   return {
+  //     isAuthenticated: false
+  //   };
+  // },
+  // created() {
+  //   eventBus.$on("authStatusUpdate", isAuthenticated => {
+  //     this.isAuthenticated = isAuthenticated;
+  //   });
+  // }
+  computed: {
+    ...mapGetters(["isAuthenticated"])
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
