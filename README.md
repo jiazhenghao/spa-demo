@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jiazhenghao/spa-demo.svg?branch=master)](https://travis-ci.org/jiazhenghao/spa-demo)
+
 ## bill
 
 ## vuejs
